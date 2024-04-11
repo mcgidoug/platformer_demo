@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dudo384m8pk8m"]
+
+[ext_resource type="Texture2D" uid="uid://dhqhd1jocbtb5" path="res://assets/sprites/player_death/player-hurt-1.png" id="1_e4ib2"]
+[ext_resource type="Texture2D" uid="uid://ce503np6mey5k" path="res://assets/sprites/player_death/player-hurt-2.png" id="2_j2lq1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsow2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcfr5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e4ib2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j2lq1")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nsow2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qcfr5")
+animation = &"Death"
